@@ -1,0 +1,84 @@
+
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 39.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+  }
+
+
+}
+.blurer {
+  background: rgba( 255, 255, 255, 0.7 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 9.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.25 );
+}
+.active {
+  color: var(--primary);
+}
+.text-with-border {
+  color: white; /* لون النص */
+  font-weight: bold; /* سمك الخط */
+  text-align: center; /* محاذاة النص */
+  text-shadow: -0.5px -0.5px 0 #111,  
+                0.5px -0.5px 0 #111,
+               -0.5px  0.5px 0 #111,
+                0.5px  0.5px 0 #111; /* تطبيق حدود سوداء */
+}
+@font-face {
+  font-family: "arabic-din-next";
+  src: url('../public/fonts/DINNEXT.ttf');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+html,body {
+  font-family: 'arabic-din-next';
+}
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }
+ @keyframes bounceImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-bounce-image {
+  animation: bounceImage 2s infinite;
+}
