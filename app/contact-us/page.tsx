@@ -6,7 +6,7 @@ type Props = {}
 
 const ContactUsPage = (props: Props) => {
   return (
-       <main className=" max-w-[1920px] w-full overflow-x-hidden mx-auto ">
+    <main className=" max-w-[1920px] mx-auto ">
       <section className='h-max w-full mt-16'>
         <HeroContactUs/>
       </section>

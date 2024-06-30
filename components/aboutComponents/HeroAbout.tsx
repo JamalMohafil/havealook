@@ -14,7 +14,7 @@ const HeroAbout = (props: Props) => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="justify-center z-20 items-center flex flex-col gap-5">
-          <span className="relative z-10 shadow-xl text-white text-5xl max-sm:text-4xl text-center">
+          <span className="relative z-10 max-sm:text-4xl shadow-xl text-white text-5xl max-sm:text-4xl text-center">
             {" </ "} حول شركة Have a
             <span className="text-primary font-extrabold"> Look </span>
             {" > "}
@@ -23,7 +23,7 @@ const HeroAbout = (props: Props) => {
       </div>
 
       <div className="justify-center py-12 z-20 items-center flex flex-col gap-3">
-        <span className="relative z-10 text-5xl max-sm:text-4xl text-center">
+        <span className="relative z-10 max-sm:text-4xl text-5xl max-sm:text-4xl text-center">
           لماذا شركة Have a{" "}
           <span className="text-primary font-extrabold">Look</span>{" "}
         </span>
@@ -32,7 +32,7 @@ const HeroAbout = (props: Props) => {
           خبرة أكثر من<span className="text-primary"> 60 سنة </span> في صناعة
           الأثاث
         </span>
-        <p className="relative z-10 max-w-[50%] text-2xl mt-4 max-sm:text-xl text-center">
+        <p className="relative z-10 max-sm:max-w-[95%] max-w-[50%] text-2xl mt-4 max-sm:text-xl text-center">
           شركة Have a Look للأثاث لها خبرة عالية في مجال الأثاث الكلاسيكي
           والصناعة اليدوية الدقيقة والمتقنة بدرجة عالية جدا وإنها أيضا تواكب
           الحداثة دائما وتقوم بتصنيع الأثاث بأجهزة متقدمة مثل الحفر بالليزر
