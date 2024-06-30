@@ -5,7 +5,7 @@ import BestProds from "@/components/BestProds";
 import AboutCounts from "@/components/aboutComponents/AboutCounts";
 export default function Page() {
   return (
-    <main className=" max-w-[1920px] mx-auto ">
+      <main className=" max-w-[1920px] w-full overflow-x-hidden mx-auto ">
       <section className="mt-[75px] h-max w-full">
         <HeroAbout />
       </section>
