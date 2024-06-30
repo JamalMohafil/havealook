@@ -9,7 +9,7 @@ import joliet from "@/public/joliet.jpg";
 
 export default function Home() {
   return (
-    <main className=" max-w-[1920px] mx-auto ">
+    <main className=" max-w-[1920px] w-full overflow-x-hidden mx-auto ">
       <Hero />
       <section className="h-max w-full bg-[#f1f1f1] max-w-[1920px] mx-auto">
         <IntroSection />
