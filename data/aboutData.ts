@@ -2,7 +2,7 @@ export const ABOUTCOUNTS = [
   {
     count: "+50",
     title: "موظف",
-    desc: "جنبًا إلى جنب، نحن فريق مزايا لتصنيع الأثاث.",
+    desc: "جنبًا إلى جنب، نحن فريق Have a look لتصنيع الأثاث.",
   },
   {
     count: "100000+",
