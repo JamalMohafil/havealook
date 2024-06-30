@@ -84,7 +84,7 @@ const Product = (props: Props) => {
   }
 
   return (
-    <div className="w-full h-max flex flex-col justify-between">
+    <div className="w-full h-max flex flex-col justify-between max-sm:mt-28">
       <div className="w-full flex-1 flex items-center justify-center">
         <Carousel className="w-[90%] max-lg:w-[85%] mx-auto h-[80%]" dir="ltr">
           <CarouselContent>
