@@ -28,7 +28,7 @@ const ProductShareIcons = ({ url, title }:any) => {
   };
 
   return (
-    <div className="flex gap-2 justify-start items-start text-gray-700">
+    <div className="flex gap-2 justify-start flex-wrap items-start text-gray-700">
       <button onClick={handleCopyLink} aria-label="Copy Link">
         <FaLink
           size={40}
