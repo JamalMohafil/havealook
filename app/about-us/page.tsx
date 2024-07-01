@@ -3,6 +3,11 @@ import Image from "next/image";
 import istanbul from "@/public/istanbul.jpg";
 import BestProds from "@/components/BestProds";
 import AboutCounts from "@/components/aboutComponents/AboutCounts";
+import { Metadata } from "next";
+export const metadata:Metadata = {
+  title:"Have a look | حولنا",
+  description:"Have a look | صفحة حولنا"
+}
 export default function Page() {
   return (
     <main className=" max-w-[1920px] mx-auto ">
