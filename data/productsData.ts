@@ -220,4 +220,49 @@ export const PRODUCTS = [
     category: "2",
     link: "/neo-living-room",
   },
+  {
+    id: "7",
+    images: [
+      "https://www.mazayafurniture.com/wp-content/uploads/2024/06/Bump-sectional-sofa-01.webp",
+      "https://www.mazayafurniture.com/wp-content/uploads/2024/06/Bump-sectional-sofa-02.webp",
+      "https://www.mazayafurniture.com/wp-content/uploads/2024/06/Bump-sectional-sofa-03.webp",
+    ],
+    title: "بامب",
+    sectionsDesc: [
+      {
+        title: "المواصفات:",
+        desc: [
+          "ركنة مودرن كابتونيه كبيرة وفسيحة بتصميم شبابي جذاب، تقضي عليها أمتع الأوقات مع أسرتك، وتستضيف عليها أحبابك لقضاء سهرة سعيدة.",
+          `الطقم يأتي إليك بضمان 10 سنوات.`,
+        ],
+      },
+      {
+        title: "المكونات:",
+        desc: ["ركنة حرف L تتكون من 3 قطع منفصلتين وبف."],
+      },
+      {
+        title: "الخامات:",
+        desc: [
+          `خشب زان أحمر مجفف شديد المتانة.`,
+          `اسفنج كثافة عالية وفايبر عالي الجودة.`,
+          `قماش مستورد عالي الجودة.`,
+        ],
+      },
+    ],
+    slug: "bump-sectional-sofa",
+    category: "5",
+    link: "/bump-sectional-sofa",
+  },
+  {
+    id: "8",
+    images: [
+      "https://www.mazayafurniture.com/wp-content/uploads/2024/06/Discovery-sectional-sofa-01.webp",
+      "https://www.mazayafurniture.com/wp-content/uploads/2024/06/Discovery-sectional-sofa-02.webp",
+    ],
+    title: "ديسكوفري",
+
+    slug: "discovery-sectional-sofa",
+    category: "5",
+    link: "/discovery-sectional-sofa",
+  },
 ];
