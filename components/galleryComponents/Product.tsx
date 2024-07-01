@@ -1,7 +1,7 @@
 "use client";
 import { PRODUCTS } from "@/data/productsData";
 import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -26,29 +26,48 @@ import { CATEGORIES } from "@/data/categoriesData";
 import ProductShareIcons from "./ProductShareIcons";
 import { Card, CardContent } from "../ui/card";
 type Props = {};
+import { Metadata } from "next";
 
 const Product = (props: Props) => {
   const { productSlug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [elseProd, setElseProd] = useState<any>(null);
+  const [elseProd, setElseProd] = useState<any>([]);
   const router = useRouter();
-    const [cat,setCat] = useState<any>('')
+  const [cat, setCat] = useState<any>("");
+
+ const [carouselHeight, setCarouselHeight] = useState(0);
+ const imageRef = useRef<any>(null);
+
+ useEffect(() => {
+   if (imageRef.current) {
+     setCarouselHeight(imageRef.current.clientHeight);
+   }
+ }, [product]);
   useEffect(() => {
     if (productSlug) {
       const prod = PRODUCTS.find((item) => item.slug === productSlug);
-      
-      if (!prod) {
-        // router.push("/gallery");
-      } else {
-        const catW = CATEGORIES.find((item)=>item.id == prod.category)
-        const elseProd = PRODUCTS.filter((item)=>item.category == prod.category
-         && item.slug != prod.slug)
 
-        setElseProd(elseProd)
-        setCat(catW)
+      if (!prod) {
+        router.push("/gallery");
+      } else {
+        const catW = CATEGORIES.find((item) => item.id == prod.category);
+        const elseW = PRODUCTS.filter(
+          (item) => item.category == prod.category && item.slug != prod.slug
+        );
+
+        if (!elseW || elseW.length < 1) {
+          setElseProd(PRODUCTS.slice(0, 6));
+        } else if(elseW.length < 3){
+          setElseProd([...elseW,...PRODUCTS.slice(0,3)]);
+        }else {
+          setElseProd(elseW.slice(0, 6));
+        }
+
+        setCat(catW);
         setProduct(prod);
       }
+
       setLoading(false);
     }
   }, [productSlug, router]);
@@ -82,32 +101,32 @@ const Product = (props: Props) => {
       </div>
     );
   }
-
   return (
     <div className="w-full h-max flex flex-col justify-between max-sm:mt-28">
       <div className="w-full flex-1 flex items-center justify-center">
-        <Carousel className="w-[90%] max-lg:w-[85%] mx-auto h-[80%]" dir="ltr">
+        <Carousel
+          className={`h-full max-h-[${carouselHeight}] w-[90%] max-lg:w-[85%] mx-auto`}
+          dir="ltr"
+        >
           <CarouselContent>
-            {product.images.map((image: any, index: number) => {
-              console.log(image);
-              return (
-                <CarouselItem
-                  key={index}
-                  className="w-full h-full flex justify-center items-center"
-                >
-                  <Image
-                    width={900}
-                    height={900}
-                    src={image}
-                    className="max-h-[600px] object-contain w-full"
-                    alt={product.title}
-                  />
-                </CarouselItem>
-              );
-            })}
+            {product.images.map((image: any, index: number) => (
+              <CarouselItem
+                key={index}
+                className="w-full h-full flex justify-center items-center relative"
+              >
+                <Image
+                  ref={imageRef}
+                  width={900}
+                  height={600}
+                  src={image}
+                  className="object-contain w-full"
+                  alt={product.title}
+                />
+              </CarouselItem>
+            ))}
           </CarouselContent>
-          <CarouselPrevious className="max-md:absolute max-md:left-[-6%] max-md:top-[50%] max-md:translate-y-[-50%]" />
-          <CarouselNext className="max-md:absolute max-md:right-[-6%] max-md:top-[50%] max-md:translate-y-[-50%]" />
+          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10" />
+          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10" />
         </Carousel>
       </div>
       <div className="pb-5 flex flex-col justify-center items-center">
@@ -144,26 +163,29 @@ const Product = (props: Props) => {
         </h1>
 
         <div className="w-[80%] flex justify-start gap-y-4 items-start mt-8 flex-col">
-          {product.sectionsDesc.map((desc: any, i: number) => (
-            <div
-              key={i}
-              className="flex justify-start items-start flex-col gap-4 w-full"
-            >
-              <h2 className="text-3xl max-w-max font-bold text-primary border-b  border-primary">
-                {desc.title}
-              </h2>
-              <ul className="flex flex-col gap-3.5">
-                {desc.desc.map((des: any, i: number) => (
-                  <li key={i} className="list-disc max-w-[900px] text-lg">
-                    {des}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {product.sectionsDesc &&
+            product.sectionsDesc.map((desc: any, i: number) => (
+              <div
+                key={i}
+                className="flex justify-start items-start flex-col gap-4 w-full"
+              >
+                <h2 className="text-3xl max-w-max font-bold text-primary border-b  border-primary">
+                  {desc.title}
+                </h2>
+                <ul className="flex flex-col gap-3.5">
+                  {desc.desc.map((des: any, i: number) => (
+                    <li key={i} className="list-disc max-w-[900px] text-lg">
+                      {des}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
         </div>
-        <div className="flex justify-start items-center w-[80%] gap-4 mt-8">
-          <span className="text-black text-2xl  font-bold">مشاركة على : </span>
+        <div className="flex justify-start flex-wrap items-center w-[80%] gap-4 mt-8">
+          <span className="text-black text-2xl  font-bold max-md:text-xl max-md:w-max max-md:text-nowrap">
+            مشاركة على :{" "}
+          </span>
           <ProductShareIcons
             url={`http://localhost:5000/${product.slug}`}
             title={"Look at this product: "}
@@ -183,7 +205,7 @@ const Product = (props: Props) => {
             {elseProd.map((item: any, index: number) => (
               <CarouselItem
                 key={index}
-                className="md:basis-1/2 max-sm:basis-2/2 lg:basis-1/3"
+                className="md:basis-1/2 max-h-[250px] max-sm:basis-2/2 lg:basis-1/3"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
