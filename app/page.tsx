@@ -8,6 +8,8 @@ import Image from "next/image";
 import joliet from "@/public/joliet.jpg";
 
 export default function Home() {
+  
+
   return (
     <main className=" max-w-[1920px] w-full overflow-x-hidden mx-auto ">
       <Hero />

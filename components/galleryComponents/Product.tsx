@@ -205,7 +205,7 @@ const Product = (props: Props) => {
             {elseProd.map((item: any, index: number) => (
               <CarouselItem
                 key={index}
-                className="md:basis-1/2 max-h-[250px] max-sm:basis-2/2 lg:basis-1/3"
+                className="md:basis-1/2 max-h-[300px] max-sm:basis-2/2 lg:basis-1/3"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

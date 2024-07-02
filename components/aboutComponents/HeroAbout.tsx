@@ -10,7 +10,7 @@ const HeroAbout = (props: Props) => {
     <>
       <div
         className="relative min-w-full max-[2500px]:min-h-[30vh]
-     min-[2500px]:h-[920px] flex justify-center items-center bg-hero-pattern bg-cover bg-center"
+     min-[2500px]:h-[320px] flex justify-center items-center bg-hero-pattern bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="justify-center z-20 items-center flex flex-col gap-5">
